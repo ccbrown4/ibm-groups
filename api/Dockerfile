@@ -15,5 +15,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 CMD [ "node", "server.js" ]
+
+# docker run -p 5000:5000 -d court.c.brown/ibm-groups
+

@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js",
-    "test": "nodemon --exec 'mocha -R min'"
+    "server": "node_modules/.bin/nodemon server.js",
+    "test": "../node_modules/.bin/nodemon --exec 'mocha -R min'"
   },
   "keywords": [],
   "author": "Courtney C Brown",
@@ -23,7 +23,6 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "request": "^2.88.2",
     "validator": "^13.5.2"
   },
   "devDependencies": {

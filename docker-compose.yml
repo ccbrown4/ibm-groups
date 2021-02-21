@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  api:
+    #env_file:
+    #  "./api/api.env"
+    build:
+      context: ./api
+      dockerfile: ./Dockerfile
+    image: "court.c.brown/ibm-app-api"
+    ports:
+      - "5000:5000"
+  client:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: "court.c.brown/ibm-app-client"
+    ports:
+      - "3000:3000"
+    links:
+      - "api"
