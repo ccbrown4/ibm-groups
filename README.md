@@ -27,7 +27,7 @@ Here is a pre-existing auth:
  - pass: 123456
 The only incomplete portion of the client application is the visibility of blank pages when not logged in.  For instance, if you are not logged in you can see the page for persons, groups and colors however the API will not return data to be rendered because you are not logged in.  You can create a user, and you have to authenticate in order to see or interact with any of the data.
 
-I could get it working quite easily by hacking away at it but that doesn't really display any React skill.  I have some ideas on how to get it working via React hooks so I'll continue to work on that a little.
+I could get it working quite easily by hacking away at it but that doesn't really display any React skill.  I have some ideas on how to get it working via React hooks so I'll continue to work on that a little.  There is a branch for this repo called `auth/fix`.  I will keep the auth ui changes there.
 
 
 ## Seeding data
