@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import setUpAxios from "../utils/setUpAxios";
 import axios from "axios";
+import {AuthContext} from "../modules/AuthHook";
 
 export const Selector = (props) => {
+    const {setIsAuthenticated} = React.useContext(AuthContext);
     const {name, setInput} = props;
 
     const[selections, setSelections] = useState([]);
@@ -16,7 +18,7 @@ export const Selector = (props) => {
                 setSelections(response.data[name]);
             })
             .catch(function (error) {
-                console.log(error);
+                if (error.code === 401) setIsAuthenticated(false);
             });
     }, []);
 

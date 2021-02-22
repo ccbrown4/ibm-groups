@@ -2,8 +2,11 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Selector} from '../components';
 import setUpAxios from '../utils/setUpAxios';
+import {AuthContext} from "../modules/AuthHook";
 
 export const AddPersonsPage = () => {
+    const {isAuthenticated, setIsAuthenticated} = React.useContext(AuthContext);
+
     const [name, setName] = useState('');
     const [group, setGroup] = useState('');
     const [color, setColor] = useState('');
@@ -65,6 +68,7 @@ export const AddPersonsPage = () => {
                         console.log(res.data);
                     })
                     .catch( (err) => {
+                        if(err.status === 401) setIsAuthenticated(false);
                         let errorData = err.response.data;
                         if(errorData.name) setNameMessage(errorData.name)
                         if(errorData.group) setGroupMessage(errorData.group)

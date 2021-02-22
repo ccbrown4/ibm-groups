@@ -3,9 +3,11 @@ import axios from 'axios';
 
 import setAuthToken from "../utils/setUpAxios";
 import setUpAxios from "../utils/setUpAxios";
+import {AuthContext} from "../modules/AuthHook";
 
 export const ResetPage = () => {
     const [message, setMessage] = useState('');
+    const {setIsAuthenticated} = React.useContext(AuthContext);
 
     return (
         <>
@@ -17,6 +19,7 @@ export const ResetPage = () => {
                     setUpAxios(axios);
                     axios.post("http://localhost:5000/api/admin/wipe")
                         .catch(err => {
+                            if (err.code === 401) setIsAuthenticated(false);
                             console.log(err);
                         })
                 }}>wipe persons</button>
@@ -28,6 +31,7 @@ export const ResetPage = () => {
                     setUpAxios(axios);
                     axios.post("http://localhost:5000/api/admin/reset/local")
                         .catch(err => {
+                            if (err.code === 401) setIsAuthenticated(false);
                             console.log(err);
                         })
                 }}>load persons</button>

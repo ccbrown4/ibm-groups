@@ -18,42 +18,26 @@ import {
     ResetPage
 } from './pages';
 
+import {AuthProvider, AuthContext, SecureLink, SecureRoute} from './modules/AuthHook';
 import './App.css';
 
 localStorage.setItem('apiURL', 'http://localhost:5000');
 
 function App() {
-    return (
+    return (<AuthProvider>
         <div className="App">
             <Router>
                 <div>
-                    <ul>
-                        <li>
-                            <Link to="/">Persons</Link>
-                        </li>
-                        <li>
-                            <Link to="/add">Add Persons</Link>
-                        </li>
-                        <li>
-                            <Link to="/reset">Reset Data</Link>
-                        </li>
-                        <li>
-                            <Link to="/auth">Login/Register</Link>
-                        </li>
-                    </ul>
+                    <SecureLink to="/">Persons</SecureLink>
+                    <SecureLink to="/add">Add Persons</SecureLink>
+                    <SecureLink to="/reset">Update Data</SecureLink>
+                    <div className="main-nav-tab">
+                        <Link to="/auth">Login/Register</Link>
+                    </div>
 
                     <hr/>
 
                     <Switch>
-                        <Route exact path="/">
-                            <PersonsPage/>
-                        </Route>
-                        <Route exact path="/add">
-                            <AddPersonsPage/>
-                        </Route>
-                        <Route path="/reset">
-                            <ResetPage/>
-                        </Route>
                         <Route path="/auth">
                             <div>
                                 <LoginPage/>
@@ -65,11 +49,21 @@ function App() {
                                 <LogoutPage/>
                             </div>
                         </Route>
+                        <SecureRoute path="/">
+                            <PersonsPage/>
+                        </SecureRoute>
+                        <SecureRoute path="/add">
+                            <AddPersonsPage/>
+                        </SecureRoute>
+                        <SecureRoute path="/reset">
+                            <ResetPage/>
+                        </SecureRoute>
+
                     </Switch>
                 </div>
             </Router>
         </div>
-    );
+    </AuthProvider>);
 }
 
 export default App;
