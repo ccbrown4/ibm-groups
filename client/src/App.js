@@ -12,6 +12,7 @@ import {
 import {
     RegisterPage,
     LoginPage,
+    LogoutPage,
     PersonsPage,
     AddPersonsPage,
     ResetPage
@@ -59,6 +60,9 @@ function App() {
                             </div>
                             <div>
                                 <RegisterPage/>
+                            </div>
+                            <div>
+                                <LogoutPage/>
                             </div>
                         </Route>
                     </Switch>
