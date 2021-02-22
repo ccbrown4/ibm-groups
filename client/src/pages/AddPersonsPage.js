@@ -60,7 +60,7 @@ export const AddPersonsPage = () => {
                 setUpAxios(axios);
                 axios.post('/api/persons', person)
                     .then( (res) => {
-                        setMainMessage('Person Added');
+                        setMainMessage(res.data.message);
                         console.log(res);
                         console.log(res.data);
                     })

@@ -25,7 +25,7 @@ I didn't want to waste time on unnecessary functionality when I knew React would
 Here is a pre-existing auth:
  - user: john@doe.com
  - pass: 123456
-
+s
 The only incomplete portion of the client application is the visibility of certain elements when logged in or out.  You can create a user, and you have to authenticate, in order to see, or interact with any of the data.  However the panels that display that data are visable and empty.
 
 I could get it working quite easily by hacking away at it but that doesn't really display any React skill.  I have some ideas on how to get it working via React hooks so I'll continue to work on that a little.
