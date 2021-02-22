@@ -4,6 +4,7 @@ const fs = require('fs');
 
 const passport = require('passport');
 const Person = require('../../models/Person')
+const AddPerson = require('../../utils/AddPerson');
 
 router.post('/wipe',
     passport.authenticate('jwt', {session: false}),
@@ -23,11 +24,13 @@ router.post('/reset/local',
         let jsonData = JSON.parse(rawdata);
         Object.entries(jsonData).map(group => {
             Object.entries(group[1]).map(person => {
-                new Person({
-                    name: person[0],
-                    group: group[0],
-                    color: person[1]
-                }).save();
+                AddPerson(
+                    new Person({
+                        name: person[0],
+                        group: group[0],
+                        color: person[1]
+                    })
+                );
             });
         });
     });
@@ -47,11 +50,13 @@ router.post('/reset',
 
                 Object.entries(data).map(group => {
                     Object.entries(group[1]).map(person => {
-                        return new Person({
-                            name: person[0],
-                            group: group[0],
-                            color: person[1]
-                        }).save();
+                        AddPerson(
+                            new Person({
+                                name: person[0],
+                                group: group[0],
+                                color: person[1]
+                            })
+                        );
                     });
                 });
 
