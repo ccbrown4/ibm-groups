@@ -15,7 +15,7 @@ export const ResetPage = () => {
                 <div className='message'>{message}</div>
                 <button type="button" onClick={ e => {
                     setUpAxios(axios);
-                    axios.post("http://localhost:5000/api/admin/wipe")
+                    axios.post("http://localhost:6000/api/admin/wipe")
                         .catch(err => {
                             console.log(err);
                         })
@@ -26,7 +26,7 @@ export const ResetPage = () => {
                 <div className='message'>{message}</div>
                 <button type="button" onClick={ e => {
                     setUpAxios(axios);
-                    axios.post("http://localhost:5000/api/admin/reset/local")
+                    axios.post("http://localhost:6000/api/admin/reset/local")
                         .catch(err => {
                             console.log(err);
                         })

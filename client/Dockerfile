@@ -12,7 +12,8 @@ COPY package-lock.json ./
 RUN npm install --silent
 
 # add app
-COPY .. ./
+COPY . ./
 
-# start app
+# start and expose app
+EXPOSE 6000
 CMD ["npm", "start"]

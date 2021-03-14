@@ -36,7 +36,7 @@ I have three utilities for this. If you go to the 'http://localhost:3000/reset' 
  - `wipe persons` removes all person data
  - `load persons` load the persons from the file `./api/resources/input.json`
 
-I have also been using Postman (https://www.postman.com/downloads/) to upload a file to the API at `http://localhost:5000/api/admin/reset`.
+I have also been using Postman (https://www.postman.com/downloads/) to upload a file to the API at `http://localhost:6000/api/admin/reset`.
 
 
 ## Side note

@@ -20,7 +20,7 @@ import {
 
 import './App.css';
 
-localStorage.setItem('apiURL', 'http://localhost:5000');
+localStorage.setItem('apiURL', 'http://localhost:6000');
 
 function App() {
     return (

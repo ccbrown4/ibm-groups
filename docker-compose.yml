@@ -7,14 +7,17 @@ services:
     build:
       context: ./api
       dockerfile: ./Dockerfile
-    image: "court.c.brown/ibm-app-api"
+    image: "localhost:5000/ibm-app-api"
     ports:
-      - "5000:5000"
+      - "6000:6000"
   client:
     build:
       context: ./client
       dockerfile: ./Dockerfile
-    image: "court.c.brown/ibm-app-client"
+    #network_mode: host
+    #depends_on:
+    #  - api
+    image: "localhost:5000/ibm-app-client"
     ports:
       - "3000:3000"
     links:

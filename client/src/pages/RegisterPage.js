@@ -51,7 +51,7 @@ export const RegisterPage = () => {
                     onChange={e => setPassword2(e.target.value)}/>
             </div>
             <button onClick={e => {
-                axios.post('http://localhost:5000/api/users/register', {
+                axios.post('http://localhost:6000/api/users/register', {
                     name: name,
                     email: email,
                     password: password,

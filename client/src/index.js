@@ -16,5 +16,5 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-process.env.API_DOMAIN = process.env.API_DOMAIN || 'http://localhost:5000/';
+process.env.API_DOMAIN = process.env.API_DOMAIN || 'http://localhost:6000/';
 

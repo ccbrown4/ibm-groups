@@ -31,7 +31,7 @@ export const LoginPage = () => {
                     onChange={e => setPassword(e.target.value)}/>
             </div>
             <button onClick={e => {
-                axios.post('http://localhost:5000/api/users/login', {
+                axios.post('http://localhost:6000/api/users/login', {
                         email: email,
                         password: password
                     })
